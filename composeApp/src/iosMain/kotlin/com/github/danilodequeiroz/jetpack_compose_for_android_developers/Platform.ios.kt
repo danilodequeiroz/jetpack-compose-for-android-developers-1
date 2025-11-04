@@ -1,6 +1,6 @@
 package com.github.danilodequeiroz.jetpack_compose_for_android_developers
 
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.runtime.Composable
 import com.github.danilodequeiroz.jetpack_compose_for_android_developers.ui.theme.DarkColorPalette
 import com.github.danilodequeiroz.jetpack_compose_for_android_developers.ui.theme.LightColorPalette
@@ -13,17 +13,11 @@ class IOSPlatform : Platform {
 
 actual fun getPlatform(): Platform = IOSPlatform()
 
+@Composable
+actual fun getPlatformSpecificColorScheme(
+    dynamicColor: Boolean,
+    darkTheme: Boolean
+): ColorScheme =  if (darkTheme) DarkColorPalette else LightColorPalette
 
 @Composable
-actual fun BasicsCodelabTheme(
-    darkTheme: Boolean,
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean,
-    content: @Composable () -> Unit
-) {
-    MaterialTheme(
-        colorScheme = if (darkTheme) DarkColorPalette else LightColorPalette,
-        typography = com.github.danilodequeiroz.jetpack_compose_for_android_developers.ui.theme.Typography,
-        content = content
-    )
-}
+actual fun EnableEdgeToEdgeGlobal() =Unit

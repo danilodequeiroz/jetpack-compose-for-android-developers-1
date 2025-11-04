@@ -14,8 +14,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.github.danilodequeiroz.jetpack_compose_for_android_developers.BasicsCodelabTheme
 import com.github.danilodequeiroz.jetpack_compose_for_android_developers.main.a_essentials.ListWithBug
+import com.github.danilodequeiroz.jetpack_compose_for_android_developers.ui.theme.BasicsCodelabTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
