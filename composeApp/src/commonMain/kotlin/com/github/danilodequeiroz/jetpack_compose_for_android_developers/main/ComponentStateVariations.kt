@@ -1,4 +1,4 @@
-package com.github.fliiapp.main
+package com.github.danilodequeiroz.jetpack_compose_for_android_developers.main
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image

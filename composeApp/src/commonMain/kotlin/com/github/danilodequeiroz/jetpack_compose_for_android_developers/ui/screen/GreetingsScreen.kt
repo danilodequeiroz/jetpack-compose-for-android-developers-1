@@ -1,8 +1,5 @@
-package com.github.danilodequeiroz.jetpack_compose_for_android_developers
+package com.github.danilodequeiroz.jetpack_compose_for_android_developers.ui.screen
 
-import android.content.res.Configuration
-import android.content.res.Configuration.UI_MODE_NIGHT_NO
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
@@ -10,7 +7,11 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -30,18 +31,22 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.github.danilodequeiroz.jetpack_compose_for_android_developers.ui.theme.BasicsCodelabTheme
-
+import com.github.danilodequeiroz.jetpack_compose_for_android_developers.BasicsCodelabTheme
+import jetpackcomposeforandroiddevelopers.composeapp.generated.resources.Res
+import jetpackcomposeforandroiddevelopers.composeapp.generated.resources.show_less
+import jetpackcomposeforandroiddevelopers.composeapp.generated.resources.show_more
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 fun GreetingsScreen(
     items: List<String> = List(size = 1000) { "$it" }
 ) {
-    Surface {
-        LazyColumn {
+    Surface(modifier = Modifier.fillMaxSize()) {
+        LazyColumn(
+            contentPadding = WindowInsets.statusBars.asPaddingValues()
+        ) {
             item {
                 GreetingContent("Header")
             }
@@ -116,9 +121,9 @@ fun GreetingContent(name: String) {
                 Icon(
                     imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
                     contentDescription = if (expanded) {
-                        stringResource(R.string.show_less)
+                        stringResource( Res.string.show_less)
                     } else {
-                        stringResource(R.string.show_more)
+                        stringResource( Res.string.show_more)
                     }
                 )
             }
@@ -127,7 +132,7 @@ fun GreetingContent(name: String) {
 }
 
 @Composable
-@Preview(showBackground = true, widthDp = 320, uiMode = UI_MODE_NIGHT_NO)
+@Preview(showBackground = true, widthDp = 320)
 fun GreetingCard_Preview(){
     BasicsCodelabTheme {
         Column {
@@ -139,26 +144,7 @@ fun GreetingCard_Preview(){
 }
 
 @Composable
-@Preview(showBackground = true, widthDp = 320, uiMode = UI_MODE_NIGHT_NO)
-fun Greeting_Preview(){
-    BasicsCodelabTheme {
-        Column {
-            GreetingContent("Android")
-            GreetingContent("Compose")
-        }
-    }
-}
-
-@Composable
-@Preview(showBackground = true, widthDp = 320, uiMode = UI_MODE_NIGHT_YES)
-fun GreetingsScreen_Preview_Night() {
-    BasicsCodelabTheme {
-        GreetingsScreen()
-    }
-}
-
-@Composable
-@Preview(showBackground = true, widthDp = 320, uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(showBackground = true, widthDp = 320)
 fun GreetingsScren_Preview_Light() {
     BasicsCodelabTheme {
         GreetingsScreen()

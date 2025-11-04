@@ -1,6 +1,5 @@
-package com.github.danilodequeiroz.jetpack_compose_for_android_developers
+package com.github.danilodequeiroz.jetpack_compose_for_android_developers.ui.screen
 
-import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,9 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.github.danilodequeiroz.jetpack_compose_for_android_developers.ui.theme.BasicsCodelabTheme
+import com.github.danilodequeiroz.jetpack_compose_for_android_developers.BasicsCodelabTheme
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun OnboardingScreen(modifier: Modifier = Modifier, onContinueClick: () -> Unit) {
@@ -34,7 +33,6 @@ fun OnboardingScreen(modifier: Modifier = Modifier, onContinueClick: () -> Unit)
     }
 }
 
-@Preview(showBackground = true, widthDp = 320, heightDp = 320, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
 fun OnboardingPreview() {
